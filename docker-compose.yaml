@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgresdb
+    image: postgres:15-bookworm
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=app_dev
+    volumes:
+      - postgresdb-data:/var/lib/postgresql/data
+
+volumes:
+    postgresdb-data:

@@ -1,6 +1,7 @@
 // See the Tailwind configuration guide for advanced usage
 // https://tailwindcss.com/docs/configuration
 
+const { skeleton } = require('@skeletonlabs/tw-plugin')
 const plugin = require("tailwindcss/plugin")
 const fs = require("fs")
 const path = require("path")
@@ -10,7 +11,8 @@ module.exports = {
     "./js/**/*.js",
     "./svelte/**/*.{html,js,svelte,ts}",
     "../lib/*_web.ex",
-    "../lib/*_web/**/*.*ex"
+    "../lib/*_web/**/*.*ex",
+    "./node_modules/@skeletonlabs/skeleton/**/*.{html,js,svelte,ts}",
   ],
   theme: {
     extend: {
@@ -64,6 +66,13 @@ module.exports = {
           }
         }
       }, {values})
+    }),
+
+    // skeleton ui v2
+    skeleton({
+      themes: {
+        preset: [ "modern" ]
+      } 
     })
   ]
 }

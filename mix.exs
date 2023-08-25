@@ -54,7 +54,8 @@ defmodule App.MixProject do
       {:ash_postgres, "~> 1.3"},
       {:ash_phoenix, "~> 1.2"},
       {:ash_authentication, "~> 3.11"},
-      {:ash_authentication_phoenix, "~> 1.7"}
+      {:ash_authentication_phoenix, "~> 1.7"},
+      {:live_svelte, "~> 0.12.0"}
     ]
   end
 
@@ -66,13 +67,18 @@ defmodule App.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+      setup: ["deps.get", "ecto.setup", "cmd --cd assets pnpm install"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "cmd --cd assets node build.js --deploy",
+        "phx.digest"
+      ]
     ]
   end
 end

@@ -4,7 +4,8 @@
     "esbuild-plugin-import-glob": "^0.1.1",
     "esbuild-svelte": "^0.7.4",
     "svelte": "^4.2.0",
-    "svelte-preprocess": "^5.0.4"
+    "svelte-preprocess": "^5.0.4",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "live_svelte": "file:../deps/live_svelte",

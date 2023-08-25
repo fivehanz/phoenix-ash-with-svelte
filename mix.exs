@@ -55,7 +55,8 @@ defmodule App.MixProject do
       {:ash_phoenix, "~> 1.2"},
       {:ash_authentication, "~> 3.11"},
       {:ash_authentication_phoenix, "~> 1.7"},
-      {:live_svelte, "~> 0.12.0"}
+      {:live_svelte, "~> 0.12.0"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 

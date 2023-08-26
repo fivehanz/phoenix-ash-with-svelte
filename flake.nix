@@ -13,7 +13,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = (with pkgs; [ elixir_1_15 nodejs_20 nodePackages.pnpm ]) ++
+          packages = (with pkgs; [ asdf-vm nodejs_20 nodePackages.pnpm ]) ++
             # Linux only
             pkgs.lib.optionals (pkgs.stdenv.isLinux) (with pkgs; [ gigalixir inotify-tools libnotify ]) ++
             # macOS only
@@ -21,7 +21,7 @@
             (with pkgs.darwin.apple_sdk.frameworks; [ CoreFoundation CoreServices ]);
 
           shellHook = ''
-            ${pkgs.elixir_1_15}/bin/elixir --version
+            echo "asdf `${pkgs.asdf-vm}/bin/asdf --version`"
             echo "node `${pkgs.nodejs_20}/bin/node --version`"
           '';
         };

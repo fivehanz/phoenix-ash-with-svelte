@@ -17,8 +17,7 @@ defmodule AppWeb.Router do
   scope "/", AppWeb do
     pipe_through :browser
 
-    get "/", PageController, :svelte
-    get "/home", PageController, :home
+    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.

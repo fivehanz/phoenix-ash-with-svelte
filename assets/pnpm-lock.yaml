@@ -1,8 +1,18 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
+dependencies:
+  live_svelte:
+    specifier: file:../deps/live_svelte
+    version: file:../deps/live_svelte
+  phoenix:
+    specifier: file:../deps/phoenix
+    version: file:../deps/phoenix
+  phoenix_html:
+    specifier: file:../deps/phoenix_html
+    version: file:../deps/phoenix_html
+  phoenix_live_view:
+    specifier: file:../deps/phoenix_live_view
+    version: file:../deps/phoenix_live_view
 
 devDependencies:
   '@skeletonlabs/skeleton':
@@ -1092,3 +1102,31 @@ packages:
     resolution: {integrity: sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==}
     engines: {node: '>= 14'}
     dev: true
+
+  file:../deps/live_svelte:
+    resolution: {directory: ../deps/live_svelte, type: directory}
+    name: live_svelte
+    version: 0.12.0
+    dev: false
+
+  file:../deps/phoenix:
+    resolution: {directory: ../deps/phoenix, type: directory}
+    name: phoenix
+    version: 1.7.7
+    dev: false
+
+  file:../deps/phoenix_html:
+    resolution: {directory: ../deps/phoenix_html, type: directory}
+    name: phoenix_html
+    version: 3.3.2
+    dev: false
+
+  file:../deps/phoenix_live_view:
+    resolution: {directory: ../deps/phoenix_live_view, type: directory}
+    name: phoenix_live_view
+    version: 0.19.5
+    dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

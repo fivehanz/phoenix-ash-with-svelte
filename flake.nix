@@ -13,7 +13,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = (with pkgs; [ asdf-vm nodejs_20 nodePackages.pnpm ]) ++
+          packages = (with pkgs; [ erlang_26 ]) ++
             # Linux only
             pkgs.lib.optionals (pkgs.stdenv.isLinux) (with pkgs; [ gigalixir inotify-tools libnotify ]) ++
             # macOS only
@@ -21,8 +21,7 @@
             (with pkgs.darwin.apple_sdk.frameworks; [ CoreFoundation CoreServices ]);
 
           shellHook = ''
-            echo "asdf `${pkgs.asdf-vm}/bin/asdf --version`"
-            echo "node `${pkgs.nodejs_20}/bin/node --version`"
+            echo "erlang `cat ${pkgs.erlang_26}/lib/erlang/releases/26/OTP_VERSION`"
           '';
         };
       });

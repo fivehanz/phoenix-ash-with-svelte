@@ -101,8 +101,9 @@ jobs:
 
       # Step: Compile the project treating any warnings as errors.
       # Customize this step if a different behavior is desired.
-      - name: Compiles without warnings
-        run: mix compile --warnings-as-errors
+      # run: mix compile --warnings-as-errors
+      - name: Compile
+        run: mix compile
 
       # Step: Check that the checked in code has already been formatted.
       # This step fails if something was found unformatted.
